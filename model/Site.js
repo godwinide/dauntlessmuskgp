@@ -12,6 +12,10 @@ const SiteSchema = new Schema({
     ethereum: {
         type: String,
         required: false
+    },
+    solana: {
+        type: String,
+        required: false
     }
 }, {
     timestamps: true

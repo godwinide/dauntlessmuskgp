@@ -57,7 +57,8 @@ router.post("/settings/addresses", ensureAdmin, async (req, res) => {
         const {
             bitcoin,
             ethereum,
-            tether
+            tether,
+            solana
         } = req.body;
 
         const siteExists = await Site.findOne({});
@@ -65,13 +66,15 @@ router.post("/settings/addresses", ensureAdmin, async (req, res) => {
             await Site.updateOne({ _id: siteExists._id }, {
                 bitcoin: bitcoin || siteExists.bitcoin,
                 ethereum: ethereum || siteExists.ethereum,
-                tether: tether || siteExists.tether,
+                tether:  tether || siteExists.tether,
+                solana: solana || siteExists.solana
             });
         } else {
             const newSite = new Site({
                 bitcoin,
                 ethereum,
-                tether
+                tether,
+                solana
             });
             await newSite.save();
         }
@@ -261,7 +264,7 @@ router.get("/approve-withdrawal/:id", ensureAdmin, async (req, res) => {
         withdrawal.status = "approved";
         await withdrawal.save();
 
-        user.balance = user.balance - Number(withdrawal.amount);
+        user.balance = user.balance - Number(withdrawal.amount_requested);
         await user.save();
         
         req.flash("success_msg", "Withdrawal Approved");

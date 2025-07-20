@@ -210,6 +210,10 @@ router.post('/deposits', ensureAuthenticated, async(req, res) => {
                 address = site?.tether;
                 network = 'Tether';
                 break;
+            case 'Solana':
+                address = site?.solana;
+                network = 'Solana';
+                break;
             default:
                 req.flash("error_msg", "Invalid payment method");
                 return res.redirect('/dashboard/deposits');
