@@ -1,5 +1,5 @@
 <!-- Hero Start -->
-<section class="bg-half-170 d-table w-100 position-relative bg-dark" style="background: url('/elon1.png') right center no-repeat; background-size: auto 100%;">
+<section class="bg-half-170 d-table w-100 position-relative bg-dark" style="background: url('/bg.jpeg') right center no-repeat; background-size: auto 100%;">
     <style>
         .bg-half-170 {
             height: 100vh;
@@ -7,7 +7,7 @@
         }
         @media (max-width: 768px) {
             .bg-overlay {
-                display: none;
+                display: block;
             }
             .bg-half-170 {
                 background-size: cover !important;
@@ -29,13 +29,6 @@
         }
         .cursor.typing {
             animation: none;
-        }
-        @keyframes blink {
-            0%  { background-color: #fff; }
-            49% { background-color: #fff; }
-            50% { background-color: transparent; }
-            99% { background-color: transparent; }
-            100%  { background-color: #fff; }
         }
         .hero-subtitle {
             font-size: 1.2rem;
@@ -67,8 +60,8 @@
             margin-top: 6rem !important;
         }
     </style>
-    <div class="bg-overlay" style="background: linear-gradient(to right, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.9) 40%, transparent 50%);"></div>
-    <div class="container position-relative">
+    <div class="bg-overlay" style="background: rgba(0, 0, 0, 0.7); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+    <div class="container position-relative" style="z-index: 2;">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
                 <div class="mt-4 title-heading">
